@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v6 - white bg, ES5 only, event listener backup -->
+<!-- v7 - gold/black theme, button wired directly at script bottom, ES5 only -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -7,18 +7,17 @@
   <title>DWCP Free Alignment Diagnostic | Find Out Where Your Gap Is</title>
   <style>
     :root {
-      --bg:         #ffffff;
-      --bg2:        #f7f5f1;
-      --bg3:        #efece6;
-      --gold:       #b5891b;
-      --gold-light: #c9a84c;
-      --green:      #1b4332;
-      --green-mid:  #2d6a4f;
-      --text:       #1a1a1a;
-      --muted:      #5c5c5c;
-      --soft:       #888888;
-      --border:     rgba(0,0,0,0.10);
-      --bar-bg:     rgba(0,0,0,0.08);
+      --bg:         #0c0c0c;
+      --bg2:        #141414;
+      --bg3:        #1c1c1c;
+      --gold:       #c9a84c;
+      --gold-light: #e2c06e;
+      --gold-dim:   #9a7a32;
+      --text:       #f0ece4;
+      --muted:      #a09a94;
+      --soft:       #6a6460;
+      --border:     rgba(201,168,76,0.15);
+      --bar-bg:     rgba(255,255,255,0.07);
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -38,15 +37,13 @@
 
     /* ─── HEADER ─── */
     .site-header {
-      padding: 28px 24px 24px;
+      padding: 28px 24px 22px;
       text-align: center;
       border-bottom: 1px solid var(--border);
-      background: var(--bg);
     }
     .wordmark {
-      font-family: 'Georgia', serif;
       font-size: 11px;
-      letter-spacing: 0.28em;
+      letter-spacing: 0.30em;
       text-transform: uppercase;
       color: var(--gold);
     }
@@ -59,18 +56,17 @@
     #screen-intro { padding: 72px 0 100px; }
 
     .eyebrow {
-      font-family: 'Georgia', serif;
       font-size: 11px;
       letter-spacing: 0.28em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dim);
       margin-bottom: 28px;
       display: block;
     }
 
     h1 {
       font-size: clamp(32px, 7vw, 52px);
-      line-height: 1.12;
+      line-height: 1.1;
       color: var(--text);
       margin-bottom: 36px;
       font-weight: normal;
@@ -78,16 +74,15 @@
     }
 
     h1 em {
-      color: var(--gold);
+      color: var(--gold-light);
       font-style: italic;
     }
 
     .lede {
-      font-size: 21px;
+      font-size: 20px;
       color: var(--muted);
       margin-bottom: 56px;
       line-height: 1.85;
-      max-width: 620px;
     }
 
     /* ─── BODY COPY ─── */
@@ -97,21 +92,15 @@
       line-height: 1.9;
       margin-bottom: 22px;
     }
-
-    .intro-copy p strong {
-      color: var(--text);
-      font-weight: normal;
-    }
-
+    .intro-copy p strong { color: var(--text); font-weight: normal; }
     .intro-copy p:last-child { margin-bottom: 0; }
 
     /* ─── CLIFFHANGER ─── */
     .cliff {
       display: block;
-      font-family: 'Georgia', serif;
       font-size: 20px;
       font-style: italic;
-      color: var(--gold);
+      color: var(--gold-light);
       text-align: center;
       margin: 52px auto;
       line-height: 1.6;
@@ -125,45 +114,39 @@
     /* ─── PILLARS ─── */
     .pillars-intro {
       font-size: 11px;
-      letter-spacing: 0.24em;
+      letter-spacing: 0.26em;
       text-transform: uppercase;
       color: var(--gold);
       margin: 48px 0 20px;
       display: block;
     }
 
-    .pillars-list {
-      margin: 0 0 8px;
-      padding: 0;
-      list-style: none;
-    }
+    .pillars-list { margin: 0 0 8px; padding: 0; list-style: none; }
 
     .pillars-list li {
       display: flex;
       gap: 20px;
       align-items: flex-start;
       padding: 18px 0;
-      border-bottom: 1px solid var(--border);
+      border-bottom: 1px solid rgba(201,168,76,0.10);
       font-size: 17px;
       color: var(--muted);
       line-height: 1.7;
     }
-
     .pillars-list li:last-child { border-bottom: none; }
 
     .pillar-num {
       min-width: 30px;
       height: 30px;
       border-radius: 50%;
-      background: var(--green);
-      color: var(--gold-light);
+      border: 1px solid var(--gold-dim);
+      color: var(--gold);
       font-size: 12px;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin-top: 2px;
+      margin-top: 3px;
       flex-shrink: 0;
-      font-family: 'Georgia', serif;
     }
 
     .pillar-text strong {
@@ -171,7 +154,6 @@
       display: block;
       font-size: 16px;
       margin-bottom: 4px;
-      letter-spacing: 0.01em;
       font-weight: normal;
     }
 
@@ -194,12 +176,12 @@
 
     .btn-primary {
       display: inline-block;
-      background: var(--green);
-      color: var(--gold-light);
+      background: var(--gold);
+      color: #0c0c0c;
       font-family: 'Georgia', serif;
-      font-size: 17px;
+      font-size: 16px;
       font-weight: bold;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.07em;
       padding: 22px 52px;
       border: none;
       cursor: pointer;
@@ -208,19 +190,15 @@
       width: 100%;
       max-width: 440px;
     }
-
-    .btn-primary:hover {
-      background: #0f2d1e;
-      transform: translateY(-2px);
-    }
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); }
 
     .btn-secondary {
       display: inline-block;
       background: transparent;
-      color: var(--green);
-      border: 1px solid var(--green);
+      color: var(--gold);
+      border: 1px solid var(--gold-dim);
       font-family: 'Georgia', serif;
-      font-size: 16px;
+      font-size: 15px;
       padding: 17px 42px;
       cursor: pointer;
       text-decoration: none;
@@ -228,8 +206,7 @@
       width: 100%;
       max-width: 440px;
     }
-
-    .btn-secondary:hover { background: var(--green); color: var(--gold-light); }
+    .btn-secondary:hover { background: var(--gold); color: #0c0c0c; }
 
     .trust-note {
       font-size: 13px;
@@ -249,27 +226,23 @@
       align-items: center;
       margin-bottom: 14px;
     }
-
     .progress-label {
       font-size: 11px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: var(--soft);
     }
-
     .progress-count {
       font-size: 13px;
       color: var(--gold);
       letter-spacing: 0.08em;
     }
-
     .progress-bar-track {
       background: var(--bar-bg);
       height: 2px;
       border-radius: 1px;
       overflow: hidden;
     }
-
     .progress-bar-fill {
       background: var(--gold);
       height: 100%;
@@ -278,13 +251,11 @@
       width: 0%;
     }
 
-    .question-card { }
-
     .q-pillar {
       font-size: 10px;
       letter-spacing: 0.26em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dim);
       margin-bottom: 18px;
       display: block;
     }
@@ -302,7 +273,7 @@
 
     .answer-btn {
       background: var(--bg2);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(201,168,76,0.12);
       color: var(--muted);
       font-family: 'Georgia', serif;
       font-size: 16px;
@@ -314,17 +285,15 @@
       border-radius: 2px;
       width: 100%;
     }
-
     .answer-btn:hover {
       border-color: var(--gold);
       background: var(--bg3);
       color: var(--text);
       transform: translateX(4px);
     }
-
     .answer-btn.selected {
-      border-color: var(--green);
-      background: rgba(27,67,50,0.07);
+      border-color: var(--gold);
+      background: rgba(201,168,76,0.08);
       color: var(--text);
     }
 
@@ -333,7 +302,7 @@
       font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--gold);
+      color: var(--gold-dim);
       margin-bottom: 6px;
     }
 
@@ -344,8 +313,8 @@
     }
 
     .btn-next {
-      background: var(--green);
-      color: var(--gold-light);
+      background: var(--gold);
+      color: #0c0c0c;
       font-family: 'Georgia', serif;
       font-size: 15px;
       font-weight: bold;
@@ -357,9 +326,8 @@
       opacity: 0.25;
       pointer-events: none;
     }
-
     .btn-next.enabled { opacity: 1; pointer-events: auto; }
-    .btn-next.enabled:hover { background: #0f2d1e; }
+    .btn-next.enabled:hover { background: var(--gold-light); }
 
     /* ─── RESULT SCREEN ─── */
     #screen-result { padding: 72px 0 100px; }
@@ -378,9 +346,8 @@
       justify-content: center;
       background: var(--bg2);
     }
-
     .score-number { font-size: 44px; color: var(--gold); line-height: 1; }
-    .score-denom { font-size: 13px; color: var(--soft); letter-spacing: 0.1em; }
+    .score-denom  { font-size: 13px; color: var(--soft); letter-spacing: 0.1em; }
 
     .result-tier {
       font-size: 11px;
@@ -389,23 +356,19 @@
       color: var(--gold);
       margin-bottom: 20px;
     }
-
     .result-headline {
       font-size: clamp(24px, 5vw, 38px);
       line-height: 1.22;
       color: var(--text);
       margin-bottom: 36px;
       font-weight: normal;
-      letter-spacing: -0.01em;
     }
-
     .result-body {
       font-size: 18px;
       color: var(--muted);
       line-height: 1.9;
       margin-bottom: 24px;
     }
-
     .result-body strong { color: var(--text); font-weight: normal; }
 
     .result-divider {
@@ -422,7 +385,6 @@
       margin-bottom: 20px;
       display: block;
     }
-
     .next-step-text {
       font-size: 22px;
       color: var(--text);
@@ -430,14 +392,12 @@
       margin-bottom: 28px;
       font-weight: normal;
     }
-
     .cta-sub {
       color: var(--muted);
       font-size: 16px;
       margin-bottom: 36px;
       line-height: 1.8;
     }
-
     .btn-cta-wrap { text-align: center; }
 
     .score-breakdown {
@@ -446,7 +406,6 @@
       background: var(--bg2);
       border: 1px solid var(--border);
     }
-
     .breakdown-title {
       font-size: 11px;
       letter-spacing: 0.24em;
@@ -454,20 +413,17 @@
       color: var(--gold);
       margin-bottom: 24px;
     }
-
     .breakdown-item {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 12px 0;
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.04);
       font-size: 14px;
     }
-
     .breakdown-item:last-child { border-bottom: none; }
     .breakdown-pillar { color: var(--muted); }
     .breakdown-score  { color: var(--gold); font-size: 15px; }
-
     .breakdown-bar-wrap {
       flex: 1;
       margin: 0 18px;
@@ -476,8 +432,7 @@
       border-radius: 2px;
       overflow: hidden;
     }
-
-    .breakdown-bar { background: var(--green); height: 100%; border-radius: 2px; }
+    .breakdown-bar { background: var(--gold); height: 100%; border-radius: 2px; }
 
     /* ─── FOOTER ─── */
     footer {
@@ -489,11 +444,11 @@
 
     /* ─── MOBILE ─── */
     @media (max-width: 480px) {
-      h1 { font-size: 28px; }
-      .lede { font-size: 18px; }
-      .cliff { font-size: 18px; }
+      h1           { font-size: 28px; }
+      .lede        { font-size: 18px; }
+      .cliff       { font-size: 18px; }
       .btn-primary { font-size: 15px; padding: 20px 28px; }
-      .answer-btn { font-size: 15px; padding: 16px 18px; }
+      .answer-btn  { font-size: 15px; padding: 16px 18px; }
     }
   </style>
 </head>
@@ -504,9 +459,7 @@
 </header>
 
 
-<!-- ═══════════════════════════════════════════════
-     SCREEN 1 — INTRO
-════════════════════════════════════════════════ -->
+<!-- ═══ SCREEN 1 — INTRO ═══ -->
 <div id="screen-intro" class="screen active">
   <div class="wrap">
 
@@ -595,9 +548,7 @@
 </div>
 
 
-<!-- ═══════════════════════════════════════════════
-     SCREEN 2 — QUIZ
-════════════════════════════════════════════════ -->
+<!-- ═══ SCREEN 2 — QUIZ ═══ -->
 <div id="screen-quiz" class="screen">
   <div class="wrap">
 
@@ -611,7 +562,7 @@
       </div>
     </div>
 
-    <div id="question-container" class="question-card"></div>
+    <div id="question-container"></div>
 
     <div class="nav-row">
       <button type="button" class="btn-next" id="btn-next">Continue &rarr;</button>
@@ -621,9 +572,7 @@
 </div>
 
 
-<!-- ═══════════════════════════════════════════════
-     SCREEN 3 — RESULT
-════════════════════════════════════════════════ -->
+<!-- ═══ SCREEN 3 — RESULT ═══ -->
 <div id="screen-result" class="screen">
   <div class="wrap">
 
@@ -632,8 +581,8 @@
         <span class="score-number" id="res-score">&mdash;</span>
         <span class="score-denom">/ 36</span>
       </div>
-      <div class="result-tier" id="res-tier">&mdash;</div>
-      <h2 class="result-headline" id="res-headline">&mdash;</h2>
+      <div class="result-tier" id="res-tier"></div>
+      <h2 class="result-headline" id="res-headline"></h2>
     </div>
 
     <p class="result-body" id="res-body-1"></p>
@@ -649,7 +598,7 @@
       <a class="btn-primary" id="res-cta-btn" href="https://the-digital-wealth-program.vercel.app/">See the Diagnostic &rarr;</a>
     </div>
 
-    <div class="score-breakdown" id="breakdown-block" style="margin-top:56px;">
+    <div class="score-breakdown" style="margin-top:56px;">
       <p class="breakdown-title">Your Pillar Breakdown</p>
       <div id="breakdown-rows"></div>
     </div>
@@ -668,354 +617,363 @@
 
 
 <script>
-  /* ─── QUESTIONS (var, not const) ─── */
-  var QUESTIONS = [
-    {
-      pillar: 'Pillar 1 — What You Studied',
-      text: 'Your degree. Did you choose it, or did JAMB, your parents, or circumstance choose it for you?',
-      answers: [
-        { label: 'A', text: 'I chose it and I would choose it again. It is directly connected to the income I am building.', score: 3 },
-        { label: 'B', text: 'I chose it. But there is a real gap between what I studied and what I actually want to earn from.', score: 2 },
-        { label: 'C', text: 'It was chosen for me. I have accepted it. But it is not where I want to build.', score: 1 },
-        { label: 'D', text: 'It was chosen for me and I have no intention of building income from it. I am starting from somewhere else entirely.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 2 — What You Actually Want',
-      text: 'The work you want to be known for and earn from. Not what pays right now. What you actually want to build. How clearly can you picture it?',
-      answers: [
-        { label: 'A', text: 'Very clearly. I know what it is, what it pays, and what the first step looks like.', score: 3 },
-        { label: 'B', text: 'I have a general direction but not the full picture.', score: 2 },
-        { label: 'C', text: 'I know more clearly what I do not want than what I want.', score: 1 },
-        { label: 'D', text: 'No clear picture at all. That is part of what has been stopping me.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 3 — What You Are Actually Good At',
-      text: 'There is something you do where time disappears. Something that comes easily to you that others find genuinely difficult. Is that thing currently earning you money?',
-      answers: [
-        { label: 'A', text: 'Yes. It is the core of what I earn from, reliably and directly.', score: 3 },
-        { label: 'B', text: 'Occasionally. People pay for it sometimes but not in a way I can count on.', score: 2 },
-        { label: 'C', text: 'Rarely. People appreciate it but I have never figured out how to charge properly for it.', score: 1 },
-        { label: 'D', text: 'No. What I am naturally good at has never felt like something anyone would pay serious money for.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 3 — What You Are Actually Good At',
-      text: 'If someone asked you right now: why should I pay you and not ten other people who do the same thing — what would you say?',
-      answers: [
-        { label: 'A', text: 'I have a clear answer. One sentence. I believe it.', score: 3 },
-        { label: 'B', text: 'I can give an answer but I hear how generic it sounds even as I say it.', score: 2 },
-        { label: 'C', text: 'I would hedge. I would list several things and hope something lands. I do not know what my actual edge is.', score: 1 },
-        { label: 'D', text: 'I have no real answer yet. I genuinely do not know what makes me different from anyone else.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 4 — What Skills You Have Built',
-      text: 'The skills you have actually developed. Through courses, work, or your own practice. Do people and businesses with real money actually want them?',
-      answers: [
-        { label: 'A', text: 'Yes. The market pays well for what I know and I have seen that directly.', score: 3 },
-        { label: 'B', text: 'There is some demand but it tends to be low-paying or inconsistent.', score: 2 },
-        { label: 'C', text: 'I am not sure who the right buyer is or what they would actually pay.', score: 1 },
-        { label: 'D', text: 'The skills I have built do not seem to translate into real income yet.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 4 — What Skills You Have Built',
-      text: 'In the last 12 months, have you invested real time and real money into building the skill you want to earn from? Or have you mostly been watching content and thinking about it?',
-      answers: [
-        { label: 'A', text: 'I have invested seriously. Structured learning, real money spent, real practice.', score: 3 },
-        { label: 'B', text: 'Some investment. I have learned things, mostly free or on the side.', score: 2 },
-        { label: 'C', text: 'I have five or more saved courses. I have finished maybe one or two. Nothing structured.', score: 1 },
-        { label: 'D', text: 'Nothing. I have been waiting to feel more certain before I invest in anything.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 5 — What the Economy Pays For',
-      text: 'Do you know, specifically, who pays money in the area you want to work in, what problem they are paying to solve, and what that payment looks like?',
-      answers: [
-        { label: 'A', text: 'Yes. I know the buyer, the problem they pay to fix, and what the budget looks like.', score: 3 },
-        { label: 'B', text: 'I have a rough sense but I have not mapped it with real precision.', score: 2 },
-        { label: 'C', text: 'I know what people do in this space but not what actually drives the income.', score: 1 },
-        { label: 'D', text: 'No clear picture. I have interests and skills but no real understanding of who is paying or why.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'Pillar 5 — What the Economy Pays For',
-      text: 'If you doubled what you charge tomorrow — or tried to charge what someone with your background could reasonably command — what would happen?',
-      answers: [
-        { label: 'A', text: 'It would work. What I offer and how I present it justifies the higher price.', score: 3 },
-        { label: 'B', text: 'Some clients would stay. I would lose others. I do not know how to fix that gap.', score: 2 },
-        { label: 'C', text: 'I would lose most of them. I am not positioned as premium and I do not know how to get there.', score: 1 },
-        { label: 'D', text: 'I am not even sure I have a clear offer yet.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'In Practice — Income and Direction',
-      text: 'What you are currently earning from. Does it have anything to do with what you actually want to build?',
-      answers: [
-        { label: 'A', text: 'Completely. What I earn from is exactly the direction I want to build my name in.', score: 3 },
-        { label: 'B', text: 'Adjacent. Related to what I want but not quite the thing.', score: 2 },
-        { label: 'C', text: 'Not really. I earn from one thing but want to build from something completely different.', score: 1 },
-        { label: 'D', text: 'No connection. I am doing something unrelated just to stay afloat right now.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'In Practice — Identity and Positioning',
-      text: 'When someone asks what you do at a professional event or on LinkedIn — what actually happens?',
-      answers: [
-        { label: 'A', text: 'I answer clearly and specifically. My response positions me accurately. I am comfortable with it.', score: 3 },
-        { label: 'B', text: 'I can answer but it sounds generic even to me.', score: 2 },
-        { label: 'C', text: 'I say something like I am into content or I do digital stuff and immediately feel embarrassed by how vague it sounds.', score: 1 },
-        { label: 'D', text: 'I genuinely do not know how to answer this without feeling like I am overstating what I do.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'In Practice — The Income Gap',
-      text: 'The gap between your income today and where you want to be in two years. How does it feel when you are being completely honest with yourself?',
-      answers: [
-        { label: 'A', text: 'Manageable. I am on the right track. I can see how to close it from here.', score: 3 },
-        { label: 'B', text: 'Real. I am making some progress but the path is not fully clear.', score: 2 },
-        { label: 'C', text: 'Large. I am not sure I am even moving in the right direction to close it.', score: 1 },
-        { label: 'D', text: 'Vast. I feel like I am starting from scratch with no clear path ahead.', score: 0 }
-      ]
-    },
-    {
-      pillar: 'In Practice — The Root Cause',
-      text: 'If you are completely honest — what is actually stopping you from earning what you want from the work you want to do?',
-      answers: [
-        { label: 'A', text: 'Execution. I know exactly what to do. I just need to be more consistent about doing it.', score: 3 },
-        { label: 'B', text: 'Positioning. I am working but I am not placed to attract the right opportunities.', score: 2 },
-        { label: 'C', text: 'Clarity. I do not know which direction to move, so I keep moving slowly or not at all.', score: 1 },
-        { label: 'D', text: 'Foundation. I am not even sure what I should be building towards, let alone how to build it.', score: 0 }
-      ]
-    }
-  ];
+/* ─── ALL var — no const, no let ─── */
 
-  /* ─── PILLAR BUCKETS (var, not const) ─── */
-  var PILLAR_BUCKETS = [
-    { name: 'What You Studied',         qs: [0],         max: 3  },
-    { name: 'What You Desire',          qs: [1],         max: 3  },
-    { name: 'Your Natural Talent',      qs: [2, 3],      max: 6  },
-    { name: 'Skills You Have Built',    qs: [4, 5],      max: 6  },
-    { name: 'What the Economy Rewards', qs: [6, 7],      max: 6  },
-    { name: 'Alignment in Practice',    qs: [8,9,10,11], max: 12 }
-  ];
-
-  /* ─── STATE ─── */
-  var currentQ    = 0;
-  var selectedIdx = null;
-  var answers     = [];
-
-  function initAnswers() {
-    answers = [];
-    for (var i = 0; i < QUESTIONS.length; i++) {
-      answers.push(null);
-    }
+var QUESTIONS = [
+  {
+    pillar: 'Pillar 1 — What You Studied',
+    text: 'Your degree. Did you choose it, or did JAMB, your parents, or circumstance choose it for you?',
+    answers: [
+      { label: 'A', text: 'I chose it and I would choose it again. It is directly connected to the income I am building.', score: 3 },
+      { label: 'B', text: 'I chose it. But there is a real gap between what I studied and what I actually want to earn from.', score: 2 },
+      { label: 'C', text: 'It was chosen for me. I have accepted it. But it is not where I want to build.', score: 1 },
+      { label: 'D', text: 'It was chosen for me and I have no intention of building income from it. I am starting from somewhere else entirely.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 2 — What You Actually Want',
+    text: 'The work you want to be known for and earn from. Not what pays right now. What you actually want to build. How clearly can you picture it?',
+    answers: [
+      { label: 'A', text: 'Very clearly. I know what it is, what it pays, and what the first step looks like.', score: 3 },
+      { label: 'B', text: 'I have a general direction but not the full picture.', score: 2 },
+      { label: 'C', text: 'I know more clearly what I do not want than what I want.', score: 1 },
+      { label: 'D', text: 'No clear picture at all. That is part of what has been stopping me.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 3 — What You Are Actually Good At',
+    text: 'There is something you do where time disappears. Something that comes easily to you that others find genuinely difficult. Is that thing currently earning you money?',
+    answers: [
+      { label: 'A', text: 'Yes. It is the core of what I earn from, reliably and directly.', score: 3 },
+      { label: 'B', text: 'Occasionally. People pay for it sometimes but not in a way I can count on.', score: 2 },
+      { label: 'C', text: 'Rarely. People appreciate it but I have never figured out how to charge properly for it.', score: 1 },
+      { label: 'D', text: 'No. What I am naturally good at has never felt like something anyone would pay serious money for.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 3 — What You Are Actually Good At',
+    text: 'If someone asked you right now: why should I pay you and not ten other people who do the same thing — what would you say?',
+    answers: [
+      { label: 'A', text: 'I have a clear answer. One sentence. I believe it.', score: 3 },
+      { label: 'B', text: 'I can give an answer but I hear how generic it sounds even as I say it.', score: 2 },
+      { label: 'C', text: 'I would hedge. I would list several things and hope something lands. I do not know what my actual edge is.', score: 1 },
+      { label: 'D', text: 'I have no real answer yet. I genuinely do not know what makes me different from anyone else.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 4 — What Skills You Have Built',
+    text: 'The skills you have actually developed. Through courses, work, or your own practice. Do people and businesses with real money actually want them?',
+    answers: [
+      { label: 'A', text: 'Yes. The market pays well for what I know and I have seen that directly.', score: 3 },
+      { label: 'B', text: 'There is some demand but it tends to be low-paying or inconsistent.', score: 2 },
+      { label: 'C', text: 'I am not sure who the right buyer is or what they would actually pay.', score: 1 },
+      { label: 'D', text: 'The skills I have built do not seem to translate into real income yet.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 4 — What Skills You Have Built',
+    text: 'In the last 12 months, have you invested real time and real money into building the skill you want to earn from? Or have you mostly been watching content and thinking about it?',
+    answers: [
+      { label: 'A', text: 'I have invested seriously. Structured learning, real money spent, real practice.', score: 3 },
+      { label: 'B', text: 'Some investment. I have learned things, mostly free or on the side.', score: 2 },
+      { label: 'C', text: 'I have five or more saved courses. I have finished maybe one or two. Nothing structured.', score: 1 },
+      { label: 'D', text: 'Nothing. I have been waiting to feel more certain before I invest in anything.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 5 — What the Economy Pays For',
+    text: 'Do you know, specifically, who pays money in the area you want to work in, what problem they are paying to solve, and what that payment looks like?',
+    answers: [
+      { label: 'A', text: 'Yes. I know the buyer, the problem they pay to fix, and what the budget looks like.', score: 3 },
+      { label: 'B', text: 'I have a rough sense but I have not mapped it with real precision.', score: 2 },
+      { label: 'C', text: 'I know what people do in this space but not what actually drives the income.', score: 1 },
+      { label: 'D', text: 'No clear picture. I have interests and skills but no real understanding of who is paying or why.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'Pillar 5 — What the Economy Pays For',
+    text: 'If you doubled what you charge tomorrow — or tried to charge what someone with your background could reasonably command — what would happen?',
+    answers: [
+      { label: 'A', text: 'It would work. What I offer and how I present it justifies the higher price.', score: 3 },
+      { label: 'B', text: 'Some clients would stay. I would lose others. I do not know how to fix that gap.', score: 2 },
+      { label: 'C', text: 'I would lose most of them. I am not positioned as premium and I do not know how to get there.', score: 1 },
+      { label: 'D', text: 'I am not even sure I have a clear offer yet.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'In Practice — Income and Direction',
+    text: 'What you are currently earning from. Does it have anything to do with what you actually want to build?',
+    answers: [
+      { label: 'A', text: 'Completely. What I earn from is exactly the direction I want to build my name in.', score: 3 },
+      { label: 'B', text: 'Adjacent. Related to what I want but not quite the thing.', score: 2 },
+      { label: 'C', text: 'Not really. I earn from one thing but want to build from something completely different.', score: 1 },
+      { label: 'D', text: 'No connection. I am doing something unrelated just to stay afloat right now.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'In Practice — Identity and Positioning',
+    text: 'When someone asks what you do at a professional event or on LinkedIn — what actually happens?',
+    answers: [
+      { label: 'A', text: 'I answer clearly and specifically. My response positions me accurately. I am comfortable with it.', score: 3 },
+      { label: 'B', text: 'I can answer but it sounds generic even to me.', score: 2 },
+      { label: 'C', text: 'I say something like I am into content or I do digital stuff and immediately feel embarrassed by how vague it sounds.', score: 1 },
+      { label: 'D', text: 'I genuinely do not know how to answer this without feeling like I am overstating what I do.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'In Practice — The Income Gap',
+    text: 'The gap between your income today and where you want to be in two years. How does it feel when you are being completely honest with yourself?',
+    answers: [
+      { label: 'A', text: 'Manageable. I am on the right track. I can see how to close it from here.', score: 3 },
+      { label: 'B', text: 'Real. I am making some progress but the path is not fully clear.', score: 2 },
+      { label: 'C', text: 'Large. I am not sure I am even moving in the right direction to close it.', score: 1 },
+      { label: 'D', text: 'Vast. I feel like I am starting from scratch with no clear path ahead.', score: 0 }
+    ]
+  },
+  {
+    pillar: 'In Practice — The Root Cause',
+    text: 'If you are completely honest — what is actually stopping you from earning what you want from the work you want to do?',
+    answers: [
+      { label: 'A', text: 'Execution. I know exactly what to do. I just need to be more consistent about doing it.', score: 3 },
+      { label: 'B', text: 'Positioning. I am working but I am not placed to attract the right opportunities.', score: 2 },
+      { label: 'C', text: 'Clarity. I do not know which direction to move, so I keep moving slowly or not at all.', score: 1 },
+      { label: 'D', text: 'Foundation. I am not even sure what I should be building towards, let alone how to build it.', score: 0 }
+    ]
   }
+];
 
+var PILLAR_BUCKETS = [
+  { name: 'What You Studied',         qs: [0],         max: 3  },
+  { name: 'What You Desire',          qs: [1],         max: 3  },
+  { name: 'Your Natural Talent',      qs: [2, 3],      max: 6  },
+  { name: 'Skills You Have Built',    qs: [4, 5],      max: 6  },
+  { name: 'What the Economy Rewards', qs: [6, 7],      max: 6  },
+  { name: 'Alignment in Practice',    qs: [8,9,10,11], max: 12 }
+];
+
+var currentQ    = 0;
+var selectedIdx = null;
+var answers     = [];
+
+function initAnswers() {
+  answers = [];
+  var i;
+  for (i = 0; i < QUESTIONS.length; i++) { answers.push(null); }
+}
+initAnswers();
+
+/* ─── SCREEN SWITCHER ─── */
+function show(id) {
+  var all = document.querySelectorAll('.screen');
+  var i;
+  for (i = 0; i < all.length; i++) { all[i].classList.remove('active'); }
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+/* ─── START ─── */
+function startQuiz() {
+  currentQ    = 0;
+  selectedIdx = null;
   initAnswers();
+  renderQuestion();
+  show('screen-quiz');
+}
 
-  /* ─── NAVIGATION ─── */
-  function show(id) {
-    var screens = document.querySelectorAll('.screen');
-    for (var i = 0; i < screens.length; i++) {
-      screens[i].classList.remove('active');
-    }
-    document.getElementById(id).classList.add('active');
-    window.scrollTo(0, 0);
+/* ─── RENDER QUESTION ─── */
+function renderQuestion() {
+  var q   = QUESTIONS[currentQ];
+  var pct = Math.round((currentQ / QUESTIONS.length) * 100);
+  var i, a, sel, html, answersHtml, container, btns;
+
+  document.getElementById('progress-count').textContent = (currentQ + 1) + ' of ' + QUESTIONS.length;
+  document.getElementById('progress-fill').style.width  = pct + '%';
+
+  selectedIdx = (answers[currentQ] !== null) ? answers[currentQ] : null;
+
+  answersHtml = '';
+  for (i = 0; i < q.answers.length; i++) {
+    a   = q.answers[i];
+    sel = (selectedIdx === i) ? ' selected' : '';
+    answersHtml += '<button type="button" class="answer-btn' + sel + '" data-idx="' + i + '">';
+    answersHtml += '<span class="answer-label">' + a.label + '</span>';
+    answersHtml += a.text;
+    answersHtml += '</button>';
   }
 
-  function startQuiz() {
-    currentQ    = 0;
-    selectedIdx = null;
-    initAnswers();
-    renderQuestion();
-    show('screen-quiz');
+  html = '<span class="q-pillar">' + q.pillar + '</span>'
+       + '<h2 class="q-text">' + q.text + '</h2>'
+       + '<div class="answers">' + answersHtml + '</div>';
+
+  container = document.getElementById('question-container');
+  container.innerHTML = html;
+
+  /* wire answer clicks — closure captures idx */
+  btns = container.querySelectorAll('.answer-btn');
+  for (i = 0; i < btns.length; i++) {
+    (function(btn, idx) {
+      btn.addEventListener('click', function() { selectAnswer(idx); });
+    })(btns[i], i);
   }
 
-  /* ─── RENDER QUESTION ─── */
-  function renderQuestion() {
-    var q   = QUESTIONS[currentQ];
-    var pct = Math.round((currentQ / QUESTIONS.length) * 100);
+  container.style.opacity   = '0';
+  container.style.transform = 'translateY(8px)';
+  requestAnimationFrame(function() {
+    container.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+    container.style.opacity    = '1';
+    container.style.transform  = 'translateY(0)';
+  });
 
-    document.getElementById('progress-count').textContent = (currentQ + 1) + ' of ' + QUESTIONS.length;
-    document.getElementById('progress-fill').style.width  = pct + '%';
+  updateNextBtn();
+}
 
+/* ─── SELECT ANSWER ─── */
+function selectAnswer(idx) {
+  var btns, i;
+  selectedIdx       = idx;
+  answers[currentQ] = idx;
+
+  btns = document.querySelectorAll('.answer-btn');
+  for (i = 0; i < btns.length; i++) {
+    if (i === idx) { btns[i].classList.add('selected'); }
+    else           { btns[i].classList.remove('selected'); }
+  }
+  updateNextBtn();
+}
+
+/* ─── NEXT BUTTON STATE ─── */
+function updateNextBtn() {
+  var btn = document.getElementById('btn-next');
+  if (selectedIdx !== null) {
+    btn.classList.add('enabled');
+    btn.textContent = (currentQ < QUESTIONS.length - 1) ? 'Continue →' : 'See My Results →';
+  } else {
+    btn.classList.remove('enabled');
+    btn.textContent = 'Continue →';
+  }
+}
+
+/* ─── ADVANCE ─── */
+function nextQuestion() {
+  if (selectedIdx === null) return;
+  if (currentQ < QUESTIONS.length - 1) {
+    currentQ++;
     selectedIdx = (answers[currentQ] !== null) ? answers[currentQ] : null;
-
-    var answersHtml = '';
-    for (var i = 0; i < q.answers.length; i++) {
-      var a   = q.answers[i];
-      var sel = (selectedIdx === i) ? ' selected' : '';
-      answersHtml += '<button type="button" class="answer-btn' + sel + '" data-idx="' + i + '">';
-      answersHtml += '<span class="answer-label">' + a.label + '</span>';
-      answersHtml += a.text;
-      answersHtml += '</button>';
-    }
-
-    var html = '<span class="q-pillar">' + q.pillar + '</span>'
-             + '<h2 class="q-text">' + q.text + '</h2>'
-             + '<div class="answers">' + answersHtml + '</div>';
-
-    var container = document.getElementById('question-container');
-    container.innerHTML = html;
-
-    /* attach click handlers */
-    var btns = container.querySelectorAll('.answer-btn');
-    for (var j = 0; j < btns.length; j++) {
-      (function(btn, idx) {
-        btn.addEventListener('click', function() { selectAnswer(idx); });
-      })(btns[j], j);
-    }
-
-    container.style.opacity   = '0';
-    container.style.transform = 'translateY(8px)';
-
-    requestAnimationFrame(function() {
-      container.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-      container.style.opacity    = '1';
-      container.style.transform  = 'translateY(0)';
-    });
-
-    updateNextBtn();
+    renderQuestion();
+  } else {
+    showResults();
   }
+}
 
-  function selectAnswer(idx) {
-    selectedIdx       = idx;
-    answers[currentQ] = idx;
-
-    var btns = document.querySelectorAll('.answer-btn');
-    for (var i = 0; i < btns.length; i++) {
-      if (i === idx) {
-        btns[i].classList.add('selected');
-      } else {
-        btns[i].classList.remove('selected');
-      }
+/* ─── RESULTS ─── */
+function showResults() {
+  var totalScore, i, t, b, q, qi, tier, bucket, earned, pct, rowsHtml;
+  var tiers = [
+    {
+      min: 28, max: 36,
+      label:    'Tier I — Aligned but Under-Deployed',
+      headline: 'You have the clarity. The structure around it is what is missing.',
+      body1:    'Your five areas are largely pointing in the same direction. You know what you want to do. You have skill behind it. You have a reasonable sense of what the market rewards. <strong>The gap is not knowledge. It is the specific positioning moves that turn what you know into what the market sees and actually pays for.</strong>',
+      body2:    'People at your level often lose 12 to 18 months doing the right things without the right frame around them. A precise external read surfaces the two or three pressure points that self-analysis cannot easily see. You are too close to your own situation to see them clearly.',
+      ctaLabel: 'What this means for you',
+      ctaHead:  'The DWCP Foundation Diagnostic gives you a complete read of your specific situation. Which lane fits your particular combination. And the exact moves that close the gap between where you are and where you should be earning.',
+      ctaSub:   'At your level, the diagnostic is less about finding direction and more about confirming it. And naming the positioning gaps that are quietly costing you income right now.',
+      ctaBtn:   'Read About the Diagnostic →',
+      ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
+    },
+    {
+      min: 18, max: 27,
+      label:    'Tier II — Misaligned and Drifting',
+      headline: 'Capable but not landing. That is the feeling. And it is not imaginary.',
+      body1:    'You have ability. You have desire. You probably have skills that are relevant. But something is preventing those things from coming together into one direction that earns. <strong>Your pillars are not broken. They are misaligned.</strong> And misalignment at this level produces exactly the feeling you have been carrying.',
+      body2:    'This is where most degree-holding Nigerians who have been trying to figure it out on their own end up. Not because they are not trying. Because no one has ever looked at their specific combination of background, talent, and situation and named the lane that actually fits. That is the one thing the DWCP diagnostic does.',
+      ctaLabel: 'What this means for you',
+      ctaHead:  'The DWCP Foundation Diagnostic will identify exactly which area is driving your misalignment. And give you a named lane, a first offer, and a 30-day action sequence.',
+      ctaSub:   'Delivered within 72 hours. Followed by a 30-minute WhatsApp call where you can push back on anything the report says and ask every question it raised.',
+      ctaBtn:   'Get the DWCP Diagnostic →',
+      ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
+    },
+    {
+      min: 9, max: 17,
+      label:    'Tier III — Stuck and Unsure',
+      headline: 'You have been in this longer than you planned. The effort is real. The gap is still there.',
+      body1:    'You are capable. You know that. But the gap between your capability and your income has stayed in spite of your effort. And you are starting to question whether effort is even the right lever anymore. <strong>It is not. The real problem is that multiple areas are pulling in different directions at once.</strong>',
+      body2:    'When several pillars are misaligned, working harder does not fix it. What fixes it is a precise read that names what you actually have, what the market in your context will pay for it, and where the friction is coming from. That is what the DWCP diagnostic does. A specific name for what is happening. A specific lane out.',
+      ctaLabel: 'What this means for you',
+      ctaHead:  'You do not need more content or another course. You need one structured read of your situation and a clear lane to move in.',
+      ctaSub:   'The DWCP Foundation Diagnostic is ₦10,000. Full written report across 17 sections. A 30-minute WhatsApp call included. Sochima reads your situation in full and gives you a lane, a first offer, and a first move. Not a general plan.',
+      ctaBtn:   'I am Ready for the Diagnostic →',
+      ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
+    },
+    {
+      min: 0, max: 8,
+      label:    'Tier IV — Foundational Reset Needed',
+      headline: 'The misalignment runs deep. That is the diagnosis, not a judgement.',
+      body1:    'This is not a reflection of your intelligence or your potential. <strong>Most people in this position have been operating on borrowed frameworks.</strong> The degree their family recommended. The career path their environment normalised. The skill someone told them was safe. None of those frameworks were built around their actual situation.',
+      body2:    'A foundational reset is not starting over. It is identifying, for the first time with real precision, what you actually have, what you genuinely want, what the market will pay for in your specific context, and building a lane from there. The DWCP diagnostic has moved people from complete confusion to a named lane and a first client within 30 days.',
+      ctaLabel: 'The one honest next step',
+      ctaHead:  'A complete diagnostic of your five areas. Your background, your natural talent, your developed skills, your genuine desires, and what the market will pay for them together.',
+      ctaSub:   '₦10,000. Full written report across 17 sections. A 30-minute WhatsApp call included. Sochima reads your situation in full and gives you a lane, a first offer, and a first move. Not a generic plan.',
+      ctaBtn:   'Get the DWCP Diagnostic →',
+      ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
     }
+  ];
 
-    updateNextBtn();
-  }
-
-  function updateNextBtn() {
-    var btn = document.getElementById('btn-next');
-    if (selectedIdx !== null) {
-      btn.classList.add('enabled');
-      if (currentQ < QUESTIONS.length - 1) {
-        btn.textContent = 'Continue →';
-      } else {
-        btn.textContent = 'See My Results →';
-      }
-    } else {
-      btn.classList.remove('enabled');
-      btn.textContent = 'Continue →';
-    }
-  }
-
-  function nextQuestion() {
-    if (selectedIdx === null) return;
-    if (currentQ < QUESTIONS.length - 1) {
-      currentQ++;
-      selectedIdx = (answers[currentQ] !== null) ? answers[currentQ] : null;
-      renderQuestion();
-    } else {
-      showResults();
+  totalScore = 0;
+  for (i = 0; i < answers.length; i++) {
+    if (answers[i] !== null) {
+      totalScore += QUESTIONS[i].answers[answers[i]].score;
     }
   }
 
-  /* ─── RESULTS ─── */
-  function showResults() {
-    var totalScore = 0;
-    for (var i = 0; i < answers.length; i++) {
-      if (answers[i] !== null) {
-        totalScore += QUESTIONS[i].answers[answers[i]].score;
+  document.getElementById('progress-fill').style.width   = '100%';
+  document.getElementById('progress-count').textContent  = '12 of 12';
+
+  tier = tiers[3];
+  for (t = 0; t < tiers.length; t++) {
+    if (totalScore >= tiers[t].min && totalScore <= tiers[t].max) { tier = tiers[t]; break; }
+  }
+
+  document.getElementById('res-score').textContent        = totalScore;
+  document.getElementById('res-tier').textContent         = tier.label;
+  document.getElementById('res-headline').textContent     = tier.headline;
+  document.getElementById('res-body-1').innerHTML         = tier.body1;
+  document.getElementById('res-body-2').innerHTML         = tier.body2;
+  document.getElementById('res-cta-label').textContent    = tier.ctaLabel;
+  document.getElementById('res-cta-headline').textContent = tier.ctaHead;
+  document.getElementById('res-cta-sub').textContent      = tier.ctaSub;
+  document.getElementById('res-cta-btn').textContent      = tier.ctaBtn;
+  document.getElementById('res-cta-btn').href             = tier.ctaUrl;
+
+  rowsHtml = '';
+  for (b = 0; b < PILLAR_BUCKETS.length; b++) {
+    bucket = PILLAR_BUCKETS[b];
+    earned = 0;
+    for (q = 0; q < bucket.qs.length; q++) {
+      qi = bucket.qs[q];
+      if (answers[qi] !== null) {
+        earned += QUESTIONS[qi].answers[answers[qi]].score;
       }
     }
+    pct = Math.round((earned / bucket.max) * 100);
+    rowsHtml += '<div class="breakdown-item">'
+             + '<span class="breakdown-pillar">' + bucket.name + '</span>'
+             + '<div class="breakdown-bar-wrap"><div class="breakdown-bar" style="width:' + pct + '%"></div></div>'
+             + '<span class="breakdown-score">' + earned + '/' + bucket.max + '</span>'
+             + '</div>';
+  }
+  document.getElementById('breakdown-rows').innerHTML = rowsHtml;
 
-    document.getElementById('progress-fill').style.width = '100%';
-    document.getElementById('progress-count').textContent = '12 of 12';
+  show('screen-result');
+}
 
-    var tiers = [
-      {
-        min: 28, max: 36,
-        label:    'Tier I — Aligned but Under-Deployed',
-        headline: 'You have the clarity. The structure around it is what is missing.',
-        body1:    'Your five areas are largely pointing in the same direction. You know what you want to do. You have skill behind it. You have a reasonable sense of what the market rewards. <strong>The gap is not knowledge. It is the specific positioning moves that turn what you know into what the market sees and actually pays for.</strong>',
-        body2:    'People at your level often lose 12 to 18 months doing the right things without the right frame around them. A precise external read surfaces the two or three pressure points that self-analysis cannot easily see. You are too close to your own situation to see them clearly.',
-        ctaLabel: 'What this means for you',
-        ctaHead:  'The DWCP Foundation Diagnostic gives you a complete read of your specific situation. Which lane fits your particular combination. And the exact moves that close the gap between where you are and where you should be earning.',
-        ctaSub:   'At your level, the diagnostic is less about finding direction and more about confirming it. And naming the positioning gaps that are quietly costing you income right now.',
-        ctaBtn:   'Read About the Diagnostic →',
-        ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
-      },
-      {
-        min: 18, max: 27,
-        label:    'Tier II — Misaligned and Drifting',
-        headline: 'Capable but not landing. That is the feeling. And it is not imaginary.',
-        body1:    'You have ability. You have desire. You probably have skills that are relevant. But something is preventing those things from coming together into one direction that earns. <strong>Your pillars are not broken. They are misaligned.</strong> And misalignment at this level produces exactly the feeling you have been carrying.',
-        body2:    'This is where most degree-holding Nigerians who have been trying to figure it out on their own end up. Not because they are not trying. Because no one has ever looked at their specific combination of background, talent, and situation and named the lane that actually fits. That is the one thing the DWCP diagnostic does.',
-        ctaLabel: 'What this means for you',
-        ctaHead:  'The DWCP Foundation Diagnostic will identify exactly which area is driving your misalignment. And give you a named lane, a first offer, and a 30-day action sequence.',
-        ctaSub:   'Delivered within 72 hours. Followed by a 30-minute WhatsApp call where you can push back on anything the report says and ask every question it raised.',
-        ctaBtn:   'Get the DWCP Diagnostic →',
-        ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
-      },
-      {
-        min: 9, max: 17,
-        label:    'Tier III — Stuck and Unsure',
-        headline: 'You have been in this longer than you planned. The effort is real. The gap is still there.',
-        body1:    'You are capable. You know that. But the gap between your capability and your income has stayed in spite of your effort. And you are starting to question whether effort is even the right lever anymore. <strong>It is not. The real problem is that multiple areas are pulling in different directions at once.</strong>',
-        body2:    'When several pillars are misaligned, working harder does not fix it. What fixes it is a precise read that names what you actually have, what the market in your context will pay for it, and where the friction is coming from. That is what the DWCP diagnostic does. A specific name for what is happening. A specific lane out.',
-        ctaLabel: 'What this means for you',
-        ctaHead:  'You do not need more content or another course. You need one structured read of your situation and a clear lane to move in.',
-        ctaSub:   'The DWCP Foundation Diagnostic is ₦10,000. Full written report across 17 sections. A 30-minute WhatsApp call included. Sochima reads your situation in full and gives you a lane, a first offer, and a first move. Not a general plan.',
-        ctaBtn:   'I am Ready for the Diagnostic →',
-        ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
-      },
-      {
-        min: 0, max: 8,
-        label:    'Tier IV — Foundational Reset Needed',
-        headline: 'The misalignment runs deep. That is the diagnosis, not a judgement.',
-        body1:    'This is not a reflection of your intelligence or your potential. <strong>Most people in this position have been operating on borrowed frameworks.</strong> The degree their family recommended. The career path their environment normalised. The skill someone told them was safe. None of those frameworks were built around their actual situation.',
-        body2:    'A foundational reset is not starting over. It is identifying, for the first time with real precision, what you actually have, what you genuinely want, what the market will pay for in your specific context, and building a lane from there. The DWCP diagnostic has moved people from complete confusion to a named lane and a first client within 30 days.',
-        ctaLabel: 'The one honest next step',
-        ctaHead:  'A complete diagnostic of your five areas. Your background, your natural talent, your developed skills, your genuine desires, and what the market will pay for them together.',
-        ctaSub:   '₦10,000. Full written report across 17 sections. A 30-minute WhatsApp call included. Sochima reads your situation in full and gives you a lane, a first offer, and a first move. Not a generic plan.',
-        ctaBtn:   'Get the DWCP Diagnostic →',
-        ctaUrl:   'https://the-digital-wealth-program.vercel.app/'
-      }
-    ];
+/* ─── WIRE BUTTONS — script is at bottom of body so DOM is already ready ─── */
+document.getElementById('btn-start').addEventListener('click', startQuiz);
+document.getElementById('btn-next').addEventListener('click', nextQuestion);
+document.getElementById('btn-restart').addEventListener('click', startQuiz);
 
-    var tier = tiers[3];
-    for (var t = 0; t < tiers.length; t++) {
-      if (totalScore >= tiers[t].min && totalScore <= tiers[t].max) {
-        tier = tiers[t];
-        break;
-      }
-    }
+</script>
 
-    document.getElementById('res-score').textContent        = totalScore;
-    document.getElementById('res-tier').textContent         = tier.label;
-    document.getElementById('res-headline').textContent     = tier.headline;
-    document.getElementById('res-body-1').innerHTML         = tier.body1;
-    document.getElementById('res-body-2').innerHTML         = tier.body2;
-    document.getElementById('res-cta-label').textContent    = tier.ctaLabel;
-    document.getElementById('res-cta-headline').textContent = tier.ctaHead;
-    document.getElementById('res-cta-sub').textContent      = tier.ctaSub;
-    document.getElementById('res-cta-btn').textContent      = tier.ctaBtn;
-    document.getElementById('res-cta-btn').href             = tier.ctaUrl;
-
-    var rowsEl   = document.getElementById('breakdown-rows');
-    var rowsHtml = '';
-    for (var b = 0; b < PILLAR_BUCKETS.length; b++) {
-      var bucket = PILLAR_BUCKETS[b];
-      var earned = 0;
-      for (var q = 0; q < bucket.qs.length; q++) {
-        var qi = bucket.qs[q];
-        if (answers[qi] !== null) {
-          earned += QUESTIONS[qi].answers[answers[qi]].score;
-        }
-      }
-      var pct = Math.round((earned / bucket.max) * 100);
-      rowsHtml += '<div class="breakdown-item">'
-               + '<span class="breakdown-pil
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
